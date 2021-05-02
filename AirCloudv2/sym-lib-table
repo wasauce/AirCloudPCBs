@@ -1,0 +1,9 @@
+(sym_lib_table
+  (lib (name UHD1110-FKA-CL1A13R3Q1BBQFMF3)(type Legacy)(uri ${KIPRJMOD}/Symbols/UHD1110-FKA-CL1A13R3Q1BBQFMF3.lib)(options "")(descr ""))
+  (lib (name 10118192-0001LF)(type Legacy)(uri ${KIPRJMOD}/Symbols/10118192-0001LF.lib)(options "")(descr ""))
+  (lib (name CU-1107)(type Legacy)(uri ${KIPRJMOD}/Symbols/CU-1107.lib)(options "")(descr ""))
+  (lib (name LED_Cloud-cache)(type Legacy)(uri ${KIPRJMOD}/LED_Cloud-cache.lib)(options "")(descr ""))
+  (lib (name XZM2CRKM2DGFBB45SCCB)(type Legacy)(uri ${KIPRJMOD}/Symbols/XZM2CRKM2DGFBB45SCCB.lib)(options "")(descr ""))
+  (lib (name IS31FL3733-QFLS4-TR)(type Legacy)(uri ${KIPRJMOD}/Symbols/IS31FL3733-QFLS4-TR.lib)(options "")(descr ""))
+  (lib (name LED_Cloud-rescue)(type Legacy)(uri ${KIPRJMOD}/LED_Cloud-rescue.lib)(options "")(descr ""))
+)

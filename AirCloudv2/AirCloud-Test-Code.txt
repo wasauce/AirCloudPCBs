@@ -1,0 +1,116 @@
+#include "Arduino_is31fl3733.h"
+const int WIFI_LED = 27;
+const int DATA_LED = 28;
+const int STATUS_LED = 30;
+
+Arduino_is31fl3733 segment_one(ADDR_GND, ADDR_GND);
+Arduino_is31fl3733 segment_two(ADDR_GND, ADDR_VCC);
+Arduino_is31fl3733 segment_three(ADDR_GND, ADDR_SDA);
+Arduino_is31fl3733 segment_four(ADDR_GND, ADDR_SCL);
+Arduino_is31fl3733 segment_five(ADDR_VCC, ADDR_GND);
+Arduino_is31fl3733 segment_six(ADDR_VCC, ADDR_VCC);
+
+void setup()
+{
+    pinMode(WIFI_LED,OUTPUT);
+    pinMode(STATUS_LED,OUTPUT);
+    pinMode(DATA_LED,OUTPUT);
+    digitalWrite(DATA_LED,HIGH);
+    digitalWrite(STATUS_LED,HIGH);
+    digitalWrite(WIFI_LED,HIGH);
+    Serial.begin(9600); // start Serial for output
+    Serial.println("Starting");
+    segment_one.Init();
+    segment_two.Init();
+    segment_three.Init();
+    segment_four.Init();
+    segment_five.Init();
+    segment_six.Init();
+    segment_one.SetGCC(0xF0);
+    segment_two.SetGCC(0xF0);
+    segment_three.SetGCC(0xF0);
+    segment_four.SetGCC(0xF0);
+    segment_five.SetGCC(0xF0);
+    segment_six.SetGCC(0xF0);
+    for (uint8_t i_cs = 0; i_cs < 16; i_cs++)
+    {
+        for (uint8_t i_sw = 0; i_sw < 12; i_sw++)
+        {
+            segment_one.SetLEDPWM(i_cs, i_sw, 255);
+            segment_two.SetLEDPWM(i_cs, i_sw, 255);
+            segment_three.SetLEDPWM(i_cs, i_sw, 255);
+            segment_four.SetLEDPWM(i_cs, i_sw, 255);
+            segment_five.SetLEDPWM(i_cs, i_sw, 255);
+            segment_six.SetLEDPWM(i_cs, i_sw, 255);
+        }
+    }
+}
+
+void loop()
+{
+    for (uint8_t i_cs = 0; i_cs < 16; i_cs++)
+    {
+        for (uint8_t i_sw = 0; i_sw < 12; i_sw++)
+        {
+            segment_one.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_ON);
+            delay(1000);
+            segment_one.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_OFF);
+            delay(500);
+        }
+    }
+
+    for (uint8_t i_cs = 0; i_cs < 16; i_cs++)
+    {
+        for (uint8_t i_sw = 0; i_sw < 12; i_sw++)
+        {
+            segment_two.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_ON);
+            delay(1000);
+            segment_two.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_OFF);
+            delay(500);
+        }
+    }
+    for (uint8_t i_cs = 0; i_cs < 16; i_cs++)
+    {
+        for (uint8_t i_sw = 0; i_sw < 12; i_sw++)
+        {
+            segment_three.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_ON);
+            delay(1000);
+            segment_three.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_OFF);
+            delay(500);
+        }
+    }
+
+    for (uint8_t i_cs = 0; i_cs < 16; i_cs++)
+    {
+        for (uint8_t i_sw = 0; i_sw < 12; i_sw++)
+        {
+            segment_four.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_ON);
+            delay(1000);
+            segment_four.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_OFF);
+            delay(500);
+        }
+    }
+
+    for (uint8_t i_cs = 0; i_cs < 16; i_cs++)
+    {
+        for (uint8_t i_sw = 0; i_sw < 12; i_sw++)
+        {
+            segment_five.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_ON);
+            delay(1000);
+            segment_five.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_OFF);
+            delay(500);
+        }
+    }
+
+    for (uint8_t i_cs = 0; i_cs < 16; i_cs++)
+    {
+        for (uint8_t i_sw = 0; i_sw < 12; i_sw++)
+        {
+            segment_six.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_ON);
+            delay(1000);
+            segment_six.SetLEDState(i_cs, i_sw, IS31FL3733_LED_STATE_OFF);
+            delay(500);
+        }
+    }
+}
+
